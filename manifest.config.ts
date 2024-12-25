@@ -115,8 +115,11 @@ export default defineManifestConfig({
       urlCheck: false,
     },
     darkmode: true,
+    themeLocation: 'theme.json',
     lazyCodeLoading: 'requiredComponents',
     usingComponents: true,
+    share: true,
+    shareTimeline: true,
     // __usePrivacyCheck__: true,
   },
   'mp-alipay': {

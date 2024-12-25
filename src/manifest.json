@@ -89,7 +89,10 @@
     },
     "usingComponents": true,
     "darkmode": true,
-    "lazyCodeLoading": "requiredComponents"
+    "themeLocation": "theme.json",
+    "lazyCodeLoading": "requiredComponents",
+    "share": true,
+    "shareTimeline": true
   },
   "mp-alipay": {
     "usingComponents": true,

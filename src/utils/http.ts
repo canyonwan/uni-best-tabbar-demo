@@ -16,6 +16,7 @@ export const http = <T>(options: CustomRequestOptions) => {
           // 2.1 提取核心数据 res.data
           resolve(res.data as IResData<T>)
         } else if (res.statusCode === 401) {
+          // TODO
           // 401错误  -> 清理用户信息，跳转到登录页
           // userStore.clearUserInfo()
           // uni.navigateTo({ url: '/pages/login/login' })

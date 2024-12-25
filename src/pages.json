@@ -1,10 +1,13 @@
 {
   "globalStyle": {
-    "navigationStyle": "default",
-    "navigationBarTitleText": "unibest",
-    "navigationBarBackgroundColor": "#f8f8f8",
-    "navigationBarTextStyle": "black",
-    "backgroundColor": "#FFFFFF"
+    "navigationBarBackgroundColor": "@navBgColor",
+    "navigationBarTextStyle": "@navTxtStyle",
+    "navigationBarTitleText": "小灵智教",
+    "backgroundColor": "@bgColor",
+    "backgroundTextStyle": "@bgTxtStyle",
+    "backgroundColorTop": "@bgColorTop",
+    "backgroundColorBottom": "@bgColorBottom",
+    "navigationStyle": "default"
   },
   "easycom": {
     "autoscan": true,
@@ -91,7 +94,8 @@
           "type": "page",
           "layout": "default",
           "style": {
-            "navigationBarTitleText": "测试B"
+            "navigationBarTitleText": "测试B",
+            "navigationBarBackgroundColor": "@navBgColor"
           }
         }
       ]

@@ -110,6 +110,7 @@ export default ({ command, mode }) => {
     define: {
       __UNI_PLATFORM__: JSON.stringify(UNI_PLATFORM),
       __VITE_APP_PROXY__: JSON.stringify(VITE_APP_PROXY),
+      GLOBAL_ENV: process.env.UNI_CUSTOM_DEFINE,
     },
     css: {
       postcss: {

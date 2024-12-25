@@ -30,6 +30,23 @@
     </div>
     <wd-button @click="handleClick">测试按钮</wd-button>
     <wd-button @click="handleToggleTheme">切换主题</wd-button>
+    <wd-button
+      open-type="getPhoneNumber|agreePrivacyAuthorization"
+      @getphonenumber="handleGetPhoneNumber"
+      @agreeprivacyauthorization="handleAgreePrivacyAuthorization"
+    >
+      开放能力
+    </wd-button>
+
+    <view
+      :style="{ backgroundColor: item }"
+      class="w-20 h-20 rounded-xl flex justify-between"
+      v-for="item in themeStore.themeColors"
+      :key="item"
+      @click="onToggleThemeColor(item)"
+    >
+      {{ item }}
+    </view>
 
     <!-- 颜色的多选按钮 -->
   </div>
@@ -44,6 +61,10 @@ const themeStore = useThemeStore()
 defineOptions({
   name: 'Home',
 })
+
+function onToggleThemeColor(item: string) {
+  themeStore.toggleThemeColor(item)
+}
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
@@ -64,6 +85,14 @@ function handleClick() {
 
 function handleToggleTheme() {
   themeStore.toggleTheme()
+}
+
+function handleGetPhoneNumber(e) {
+  console.log('%c [ phone ]-91', 'font-size:13px; background:#7f1887; color:#c35ccb;', e)
+}
+
+function handleAgreePrivacyAuthorization(e) {
+  console.log('%c [ privacy ]-91', 'font-size:13px; background:#7f1887; color:#c35ccb;', e)
 }
 </script>
 

@@ -29,3 +29,10 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv
 }
+declare interface IGlobalEnv {
+  /** 正式环境API */
+  PROD_API: string
+  /** 开发环境API */
+  DEV_API: string
+}
+declare const GLOBAL_ENV: IGlobalEnv

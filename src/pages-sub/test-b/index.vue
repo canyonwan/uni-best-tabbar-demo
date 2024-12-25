@@ -3,6 +3,7 @@
   layout: 'default',
   style: {
     navigationBarTitleText: '测试B',
+    navigationBarBackgroundColor: '@navBgColor',
   },
 }
 </route>
@@ -25,15 +26,6 @@
 
 <script lang="ts" setup>
 import { useThemeStore } from '@/store/theme'
-import { storeToRefs } from 'pinia'
-
-// defineOptions({
-//   options: {
-//     addGlobalClass: true,
-//     virtualHost: true,
-//     styleIsolation: 'shared',
-//   },
-// })
 
 const themeStore = useThemeStore()
 

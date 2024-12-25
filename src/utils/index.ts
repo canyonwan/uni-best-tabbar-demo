@@ -1,6 +1,9 @@
 import { pages, subPackages, tabBar } from '@/pages.json'
 import { isMp } from './platform'
 
+export const PROD_API = GLOBAL_ENV.PROD_API
+export const DEV_API = GLOBAL_ENV.DEV_API
+
 const getLastPage = () => {
   // getCurrentPages() 至少有1个元素，所以不再额外判断
   // const lastPage = getCurrentPages().at(-1)
@@ -134,13 +137,13 @@ export const getEvnBaseUrl = () => {
 
     switch (envVersion) {
       case 'develop':
-        baseUrl = 'https://ukw0y1.laf.run'
+        baseUrl = DEV_API
         break
       case 'trial':
-        baseUrl = 'https://ukw0y1.laf.run'
+        baseUrl = DEV_API
         break
       case 'release':
-        baseUrl = 'https://ukw0y1.laf.run'
+        baseUrl = PROD_API
         break
     }
   }
@@ -163,13 +166,13 @@ export const getEvnBaseUploadUrl = () => {
 
     switch (envVersion) {
       case 'develop':
-        baseUploadUrl = 'https://ukw0y1.laf.run/upload'
+        baseUploadUrl = `${DEV_API}/sys/common/upload`
         break
       case 'trial':
-        baseUploadUrl = 'https://ukw0y1.laf.run/upload'
+        baseUploadUrl = `${DEV_API}/sys/common/upload`
         break
       case 'release':
-        baseUploadUrl = 'https://ukw0y1.laf.run/upload'
+        baseUploadUrl = `${PROD_API}/sys/common/upload`
         break
     }
   }

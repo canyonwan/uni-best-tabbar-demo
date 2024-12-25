@@ -24,6 +24,10 @@
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
+    "dev:ws": "uni -p welsee",
+    "build:ws": "uni build -p welsee",
+    "dev:ls": "uni -p lingsuan",
+    "build:ls": "uni build -p lingsuan",
     "uvm": "npx @dcloudio/uvm@latest",
     "uvm-rm": "node ./scripts/postupgrade.js",
     "postuvm": "echo upgrade uni-app success!",
@@ -166,5 +170,31 @@
     "vite": "5.2.8",
     "vite-plugin-restart": "^0.4.2",
     "vue-tsc": "^1.8.27"
+  },
+  "uni-app": {
+    "scripts": {
+      "welsee": {
+        "title": "为石",
+        "env": {
+          "UNI_PLATFORM": "mp-weixin",
+          "PROD_API": "https://xyapi.welsee.cn",
+          "DEV_API": "https://xyapi-t.welsee.cn"
+        },
+        "define": {
+          "WELSEE": true
+        }
+      },
+      "lingsuan": {
+        "title": "灵算",
+        "env": {
+          "UNI_PLATFORM": "mp-weixin",
+          "PROD_API": "https://api.lingsuankj.com",
+          "DEV_API": "https://api-t.lingsuankj.com"
+        },
+        "define": {
+          "LINGSUAN": true
+        }
+      }
+    }
   }
 }

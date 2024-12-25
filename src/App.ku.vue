@@ -6,7 +6,7 @@ const themeStore = useThemeStore()
 const { currentTheme, themeVars } = storeToRefs(themeStore)
 </script>
 <template>
-  <WdConfigProvider :theme="currentTheme" :theme-vars="themeVars">
+  <wd-config-provider :theme="currentTheme" :theme-vars="themeVars">
     <KuRootView />
-  </WdConfigProvider>
+  </wd-config-provider>
 </template>
