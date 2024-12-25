@@ -27,7 +27,7 @@
       </wd-tabbar-item>
       <wd-tabbar-item v-else-if="item.iconType === 'local'" :title="item.text">
         <template #icon>
-          <image :src="item.icon" h-40rpx w-40rpx />
+          <wd-img :src="item.icon" :width="24" :height="24" />
         </template>
       </wd-tabbar-item>
     </block>
