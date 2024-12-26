@@ -19,6 +19,12 @@ defineOptions({
   name: 'Home',
 })
 
+const currentHomeBgImg = ref('')
+
+onShow(() => {
+  currentHomeBgImg.value = uni.getStorageSync('currentHomeBgImg') || '/static/images/home_bg.png'
+})
+
 function showToast() {
   toast.show('提示信息')
 }
@@ -52,36 +58,54 @@ function handleAgreePrivacyAuthorization(e) {}
 </script>
 
 <template>
-  <div class="overflow-hidden pt-2 px-4" :style="{ marginTop: safeAreaInsets?.top + 'px' }">
-    <div class="text-justify max-w-100 m-auto text-4 indent mb-2">{{ description }}</div>
-    <div class="text-center mt-8">
-      当前平台是：
-      <text class="text-green-500">{{ PLATFORM.platform }}</text>
-    </div>
-    <div class="text-center mt-4">
-      模板分支是：
-      <text class="text-green-500">tabbar</text>
-    </div>
-    <wd-img src="/static/images/test_icon.jpg" :width="24" :height="24" />
-    <wd-icon class-prefix="iconfont icon-my" name="" :color="themeStore.currentThemeColor" />
-    <wd-button @click="showToast">测试按钮</wd-button>
-    <wd-button @click="handleToggleTheme">切换主题</wd-button>
-
-    <view
-      :style="{ backgroundColor: item }"
-      class="w-20 h-20 rounded-xl flex justify-between"
-      v-for="item in themeStore.themeColors"
-      :key="item"
-      @click="onToggleThemeColor(item)"
+  <div class="box" :style="{ backgroundImage: `url(${currentHomeBgImg})` }">
+    <div
+      class="text-center text-2xl text-black"
+      :style="{ paddingTop: safeAreaInsets?.top + 'px' }"
     >
-      {{ item }}
-    </view>
+      <!-- #ifdef WELSEE -->
+      为石智慧校园
+      <!-- #endif -->
+      <!-- #ifdef LINGSUAN -->
+      小灵校园
+      <!-- #endif -->
+    </div>
 
-    <!-- 颜色的多选按钮 -->
+    <div class="overflow-hidden pt-2 px-4">
+      <div class="text-justify max-w-100 m-auto text-4 indent mb-2">{{ description }}</div>
+      <div class="text-center mt-8">
+        当前平台是：
+        <text class="text-green-500">{{ PLATFORM.platform }}</text>
+      </div>
+      <div class="text-center mt-4">
+        模板分支是：
+        <text class="text-green-500">tabbar</text>
+      </div>
+      <wd-img src="/static/images/test_icon.jpg" :width="24" :height="24" />
+      <wd-icon class-prefix="iconfont icon-my" name="" :color="themeStore.currentThemeColor" />
+      <wd-button @click="showToast">测试按钮</wd-button>
+      <wd-button @click="handleToggleTheme">切换主题</wd-button>
+
+      <view
+        :style="{ backgroundColor: item }"
+        class="w-20 h-20 rounded-xl flex justify-between"
+        v-for="item in themeStore.themeColors"
+        :key="item"
+        @click="onToggleThemeColor(item)"
+      >
+        {{ item }}
+      </view>
+
+      <!-- 颜色的多选按钮 -->
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.box {
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
 .main-title-color {
   color: #d14328;
 }

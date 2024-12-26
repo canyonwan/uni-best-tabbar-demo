@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { onLaunch, onShow, onHide } from '@dcloudio/uni-app'
+import { useCheckUpdate, useGetBoundingMenuButton } from './utils'
 
 onLaunch(() => {
-  console.log('App Launch')
+  useGetBoundingMenuButton()
 })
 onShow(() => {
-  console.log('App Show')
+  useCheckUpdate()
 })
 onHide(() => {
   console.log('App Hide')
